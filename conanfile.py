@@ -38,7 +38,7 @@ class LibgtaConan(ConanFile):
         os.rename(self.name + "-" + self.version, self._source_subfolder)
 
     def build(self):
-        tools.replace_in_file(os.path.join(self._source_subfolder, "CMakeLists"),
+        tools.replace_in_file(os.path.join(self._source_subfolder, "CMakeLists.txt"),
                               "${CMAKE_SOURCE_DIR}", "${CMAKE_CURRENT_SOURCE_DIR}")
         cmake = self._configure_cmake()
         cmake.build()
