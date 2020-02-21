@@ -62,3 +62,5 @@ class LibgtaConan(ConanFile):
 
     def package_info(self):
         self.cpp_info.libs = tools.collect_libs(self)
+        if self.settings.compiler == "Visual Studio" and not self.options.shared:
+            self.cpp_info.defines.append("GTA_STATIC")
